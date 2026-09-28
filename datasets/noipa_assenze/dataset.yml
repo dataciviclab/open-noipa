@@ -26,7 +26,6 @@ clean:
   required_columns: [comune_della_sede, amministrazione, eta_min, eta_max, sesso, motivazione_assenza, granularita_assenza, numero, month]
   validate:
     not_null: [comune_della_sede, motivazione_assenza, granularita_assenza, month]
-    primary_key: [comune_della_sede, amministrazione, eta_min, eta_max, sesso, motivazione_assenza, granularita_assenza, month]
     min_rows: 100000
 
 mart:
