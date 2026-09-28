@@ -25,7 +25,6 @@ clean:
   required_columns: [provincia_della_sede, amministrazione, eta_min, eta_max, sesso, comparto, inquadramento, numero, month]
   validate:
     not_null: [provincia_della_sede, amministrazione, comparto, month]
-    primary_key: [provincia_della_sede, amministrazione, eta_min, eta_max, sesso, comparto, inquadramento, month]
     min_rows: 100000
 
 mart:
@@ -37,9 +36,9 @@ mart:
   validate:
     table_rules:
       mart_contratti:
-        required_columns: [comparto, totale_personale, pct_donne, n_amministrazioni, month]
-        primary_key: [comparto, month]
-        min_rows: 5
+        required_columns: [provincia_della_sede, amministrazione, eta_min, eta_max, sesso, comparto, inquadramento, numero, month]
+        primary_key: [provincia_della_sede, amministrazione, eta_min, eta_max, sesso, comparto, inquadramento, month]
+        min_rows: 100000
 
 validation:
   fail_on_error: true

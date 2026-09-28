@@ -8,7 +8,7 @@ dataset:
   category: pubblica-amministrazione
   description: >
     Pendolarismo personale PA — distribuzione per provincia, comune,
-    distanza domicilio-lavoro. Dati NoiPA/MEF (2019-2026), CSV aggregati
+    distanza domicilio-lavoro. Dati NoiPA/MEF (2021-2026), CSV aggregati
     dal portale open data.
   years: [2021, 2022, 2023, 2024, 2025, 2026]
 
@@ -23,10 +23,9 @@ raw:
 
 clean:
   sql: "sql/clean.sql"
-  required_columns: [provincia_della_sede, comune_della_sede, stesso_comune, distance_min_KM, distance_max_KM, numero_amministrati, month]
+  required_columns: [provincia_della_sede, comune_della_sede, stesso_comune, ente, distance_min_KM, distance_max_KM, numero_amministrati, month]
   validate:
     not_null: [provincia_della_sede, comune_della_sede, month]
-    primary_key: [provincia_della_sede, comune_della_sede, stesso_comune, distance_min_KM, distance_max_KM, month]
     min_rows: 10000
 
 mart:
@@ -39,6 +38,7 @@ mart:
     table_rules:
       mart_pendolarismo:
         required_columns: [provincia_della_sede, comune_della_sede, stesso_comune, n_dipendenti, pct_stesso_comune, distanza_media_stimata, month]
+        primary_key: [provincia_della_sede, comune_della_sede, stesso_comune, month]
         min_rows: 3000
 
 validation:

@@ -19,17 +19,11 @@ run:
 
 run-all: run
 
-clean:
-	rm -rf out/data/_runs out/data/probe out/data/raw out/data/clean out/data/mart out/data/cross .tmp/
-
-clean-runs:
-	rm -rf out/data/_runs/
-
 registry:
-	$(TOOLKIT) registry build
+	$(TOOLKIT) registry build --prefix open-noipa
 
 registry-write:
-	$(TOOLKIT) registry build --write
+	$(TOOLKIT) registry build --prefix open-noipa --write
 
 help:
 	@grep -E '^[a-zA-Z_-]+:' Makefile | sort

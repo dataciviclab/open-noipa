@@ -1,11 +1,14 @@
 -- noipa_contratti: mart principale
--- Sintesi per comparto: totale personale, top amministrazioni.
--- Primary key: comparto, month
+-- Aggregazione: somma duplicati per comparto × amministrazione × fascia età.
 SELECT
+    provincia_della_sede,
+    amministrazione,
+    eta_min,
+    eta_max,
+    sesso,
     comparto,
-    SUM(numero) AS totale_personale,
-    ROUND(SUM(CASE WHEN sesso = 'F' THEN numero ELSE 0 END) * 100.0 / SUM(numero), 1) AS pct_donne,
-    COUNT(DISTINCT amministrazione) AS n_amministrazioni,
+    inquadramento,
+    SUM(numero) AS numero,
     month
 FROM clean_input
-GROUP BY comparto, month
+GROUP BY provincia_della_sede, amministrazione, eta_min, eta_max, sesso, comparto, inquadramento, month

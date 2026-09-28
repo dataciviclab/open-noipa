@@ -1,5 +1,5 @@
 -- noipa_pendolarismo: mart principale
--- Sintesi per comune: dipendenti, % stesso comune, distanza media.
+-- Aggregazione: sintesi per comune con % stesso comune e distanza media.
 -- La distanza media è stimata come punto medio della fascia (min+max)/2.
 SELECT
     provincia_della_sede,
