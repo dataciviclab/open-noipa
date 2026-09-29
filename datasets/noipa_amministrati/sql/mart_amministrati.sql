@@ -1,6 +1,6 @@
 -- noipa_amministrati: mart principale
--- Sintesi per comune: totale amministrati, % donna, distribuzione età.
--- Primary key: comune_della_sede, month
+-- Sintesi per comune: totale, % donne ponderata, % under35, % over55.
+-- Le percentuali sono ponderate per numero di amministrati (non media semplice).
 SELECT
     comune_della_sede,
     SUM(numero) AS totale_amministrati,

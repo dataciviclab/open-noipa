@@ -1,5 +1,6 @@
 -- noipa_ritenute_previdenziali: mart principale
--- Sintesi per tipo di contributo: totale dipendente, totale datore, split %.
+-- Aggregazione per tipo contributo: somma importi e cedolini, split % datore.
+-- I dati raw hanno righe per comune/amministrazione/eta → qui si aggregano tutto.
 SELECT
     ritenuta_previdenziale,
     ROUND(SUM(importo_lavoratore) / 1e6, 2) AS totale_lavoratore,
