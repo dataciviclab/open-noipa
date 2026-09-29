@@ -1,17 +1,13 @@
 -- noipa_assenze: clean layer
--- Dati già puliti dal portale NoiPA. Cast minimi.
--- eta_max può essere ' ' per la fascia 65+.
+-- Solo typing/cast. Niente aggregazioni.
 SELECT
-    comune_della_sede,
-    amministrazione,
-    CAST(eta_min AS INTEGER) AS eta_min,
-    CASE
-        WHEN TRIM(eta_max) = '' OR eta_max IS NULL THEN 999
-        ELSE CAST(TRIM(eta_max) AS INTEGER)
-    END AS eta_max,
-    sesso,
-    motivazione_assenza,
-    granularita_assenza,
-    CAST(numero AS DOUBLE) AS numero,
+    normalize_string(comune_della_sede) AS comune_della_sede,
+    normalize_string(amministrazione) AS amministrazione,
+    cast_int(eta_min) AS eta_min,
+    COALESCE(cast_int(eta_max), 999) AS eta_max,
+    normalize_string(sesso) AS sesso,
+    normalize_string(motivazione_assenza) AS motivazione_assenza,
+    normalize_string(granularita_assenza) AS granularita_assenza,
+    cast_double(numero) AS numero,
     month
 FROM raw_input

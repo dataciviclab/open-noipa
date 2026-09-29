@@ -1,17 +1,14 @@
 -- noipa_ritenute_previdenziali: clean layer
 -- Solo typing/cast. Niente aggregazioni.
 SELECT
-    comune_della_sede,
-    amministrazione,
-    CAST(eta_min AS INTEGER) AS eta_min,
-    CASE
-        WHEN TRIM(eta_max) = '' OR eta_max IS NULL THEN 999
-        ELSE CAST(TRIM(eta_max) AS INTEGER)
-    END AS eta_max,
-    sesso,
-    ritenuta_previdenziale,
-    CAST(importo_lavoratore AS DOUBLE) AS importo_lavoratore,
-    CAST(importo_datore AS DOUBLE) AS importo_datore,
-    CAST(numero_cedolini AS BIGINT) AS numero_cedolini,
+    normalize_string(comune_della_sede) AS comune_della_sede,
+    normalize_string(amministrazione) AS amministrazione,
+    cast_int(eta_min) AS eta_min,
+    COALESCE(cast_int(eta_max), 999) AS eta_max,
+    normalize_string(sesso) AS sesso,
+    normalize_string(ritenuta_previdenziale) AS ritenuta_previdenziale,
+    cast_double(importo_lavoratore) AS importo_lavoratore,
+    cast_double(importo_datore) AS importo_datore,
+    cast_bigint(numero_cedolini) AS numero_cedolini,
     month
 FROM raw_input

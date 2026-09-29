@@ -1,15 +1,13 @@
 -- noipa_pendolarismo: clean layer
--- Solo typing/cast. Niente aggregazioni (vanno nel mart).
--- Le colonne distance possono essere ' ' per chi non si sposta.
+-- Solo typing/cast. Niente aggregazioni.
+-- Le colonne distance possono essere ' ' → cast_double restituisce NULL, poi COALESCE a 0.
 SELECT
-    provincia_della_sede,
-    comune_della_sede,
-    stesso_comune,
-    ente,
-    CASE WHEN TRIM(distance_min_KM) = '' OR distance_min_KM IS NULL THEN 0
-         ELSE CAST(TRIM(distance_min_KM) AS DOUBLE) END AS distance_min_KM,
-    CASE WHEN TRIM(distance_max_KM) = '' OR distance_max_KM IS NULL THEN 0
-         ELSE CAST(TRIM(distance_max_KM) AS DOUBLE) END AS distance_max_KM,
-    CAST(numero_amministrati AS BIGINT) AS numero_amministrati,
+    normalize_string(provincia_della_sede) AS provincia_della_sede,
+    normalize_string(comune_della_sede) AS comune_della_sede,
+    normalize_string(stesso_comune) AS stesso_comune,
+    normalize_string(ente) AS ente,
+    COALESCE(cast_double(distance_min_KM), 0) AS distance_min_KM,
+    COALESCE(cast_double(distance_max_KM), 0) AS distance_max_KM,
+    cast_bigint(numero_amministrati) AS numero_amministrati,
     month
 FROM raw_input

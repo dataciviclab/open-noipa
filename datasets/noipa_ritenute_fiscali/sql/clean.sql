@@ -1,17 +1,13 @@
 -- noipa_ritenute_fiscali: clean layer
--- Dati già puliti dal portale NoiPA. Cast minimi.
--- eta_max può essere ' ' per la fascia 65+ → convertito in 999.
+-- Solo typing/cast. Niente aggregazioni.
 SELECT
-    comune_della_sede,
-    amministrazione,
-    CAST(eta_min AS INTEGER) AS eta_min,
-    CASE
-        WHEN TRIM(eta_max) = '' OR eta_max IS NULL THEN 999
-        ELSE CAST(TRIM(eta_max) AS INTEGER)
-    END AS eta_max,
-    sesso,
-    CAST(imponibile_fiscale AS DOUBLE) AS imponibile_fiscale,
-    CAST(importo_IRPEF AS DOUBLE) AS importo_IRPEF,
-    CAST(numero_cedolini AS BIGINT) AS numero_cedolini,
+    normalize_string(comune_della_sede) AS comune_della_sede,
+    normalize_string(amministrazione) AS amministrazione,
+    cast_int(eta_min) AS eta_min,
+    COALESCE(cast_int(eta_max), 999) AS eta_max,
+    normalize_string(sesso) AS sesso,
+    cast_double(imponibile_fiscale) AS imponibile_fiscale,
+    cast_double(importo_IRPEF) AS importo_IRPEF,
+    cast_bigint(numero_cedolini) AS numero_cedolini,
     month
 FROM raw_input
