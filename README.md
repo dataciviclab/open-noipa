@@ -24,9 +24,9 @@ Fonte: [dati-noipa.mef.gov.it](https://dati-noipa.mef.gov.it/cl/web/open-data/da
 - **Quanti dipendenti ha Roma vs Napoli?** E come crescono dal 2019?
 - **Quanto guadagna in media un funzionario comunale?** (imponibile medio per cedolino)
 - **Quanto costa all'erario ogni dipendente?** (stipendio + contributi previdenziali)
-- **Dove vivono i dipendenti pubblici?** (pendolarismo: 61% commuta, 26% oltre 60km)
-- **Quanti giorni di malattia per comparto?** (assenze: 800M giorni/anno solo per malattia)
-- **Quanto paga il datore di lavoro di contributi?** (72.5% del totale previdenziale)
+- **Dove vivono i dipendenti pubblici?** (pendolarismo: 62% commuta, distanza media 78 km)
+- **Quanti giorni di malattia al mese?** (64 milioni di giorni, trend 2022-2026)
+- **Quanto paga il datore di lavoro di contributi?** (73% del totale previdenziale INPDAP)
 
 ## Come accedere
 
@@ -52,12 +52,23 @@ TOOLKIT_ALLOW_SCRIPT_SOURCE=1 make run
 
 ## Approfondimenti
 
-- [Confronto NoiPA vs Conto Annuale](../../pubblica-amministrazione/open-conto-annuale/) — NoiPA copre ~50% della PA (MEF), Conto Annuale tutta
-- [Dati IPA](../../pubblica-amministrazione/indice-pa/) — anagrafica enti pubblici
+- [Confronto NoiPA vs Conto Annuale](https://github.com/dataciviclab/open-conto-annuale) — NoiPA copre ~50% della PA (MEF), Conto Annuale tutta
+- [Dati IPA](https://github.com/dataciviclab/indice-pa) — anagrafica enti pubblici
+
+## Discussioni
+
+Il forum è attivo. Ecco le discussioni principali:
+
+- [Panoramica: 2,08 milioni di dipendenti dove lavorano](https://github.com/dataciviclab/open-noipa/discussions/7)
+- [Pendolarismo: 62% commuta, a Roma 70%](https://github.com/dataciviclab/open-noipa/discussions/8)
+- [Stipendi: da Roma a Civitavecchia](https://github.com/dataciviclab/open-noipa/discussions/9)
+- [Assenze: 64 milioni di giorni di malattia al mese](https://github.com/dataciviclab/open-noipa/discussions/10)
+- [Invecchiamento: Salerno 49% over 55](https://github.com/dataciviclab/open-noipa/discussions/11)
+- [Contributi previdenziali: il datore paga il 73%](https://github.com/dataciviclab/open-noipa/discussions/12)
 
 ## Partecipa
 
-Hai domande sui dipendenti pubblici? Vuoi analisi specifiche? [Aprile una Discussion](../../dataciviclab/discussions).
+Hai domande sui dipendenti pubblici? Vuoi analisi specifiche? [Aprile una Discussion](https://github.com/dataciviclab/open-noipa/discussions).
 
 ## Licenza
 
