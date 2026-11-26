@@ -19,13 +19,15 @@ NoiPA è il sistema che paga ogni dipendente della Pubblica Amministrazione ital
 
 Fonte: [dati-noipa.mef.gov.it](https://dati-noipa.mef.gov.it/cl/web/open-data/dataset) (MEF/RGS, CC-BY-4.0).
 
+> ⚠️ **Assenze — unità in verifica (2026-11-26).** Il campo `numero` di `noipa_assenze` è pubblicato dalla fonte come «numero di ore o giorni», ma la scala non è documentata. I valori con granularità `GG` sono incompatibili con giorni per dipendente al mese; l'ipotesi più coerente è che siano **centesimi di giornata** (÷100). Da **giugno 2025** la fonte ha inoltre cambiato tassonomia e copertura delle amministrazioni: le serie prima/dopo non sono confrontabili. Non usare questi valori come giorni finché MEF/RGS non conferma. Dettagli: issue [#13](https://github.com/dataciviclab/open-noipa/issues/13).
+
 ## Esempi di domande
 
 - **Quanti dipendenti ha Roma vs Napoli?** E come crescono dal 2019?
 - **Quanto guadagna in media un funzionario comunale?** (imponibile medio per cedolino)
 - **Quanto costa all'erario ogni dipendente?** (stipendio + contributi previdenziali)
 - **Dove vivono i dipendenti pubblici?** (pendolarismo: 62% commuta, distanza media 78 km)
-- **Quanti giorni di malattia al mese?** (64 milioni di giorni, trend 2022-2026)
+- **Quanti giorni di malattia al mese?** (dato in verifica: unità non documentata, vedi issue #13)
 - **Quanto paga il datore di lavoro di contributi?** (73% del totale previdenziale INPDAP)
 
 ## Come accedere
@@ -62,7 +64,7 @@ Il forum è attivo. Ecco le discussioni principali:
 - [Panoramica: 2,08 milioni di dipendenti dove lavorano](https://github.com/dataciviclab/open-noipa/discussions/7)
 - [Pendolarismo: 62% commuta, a Roma 70%](https://github.com/dataciviclab/open-noipa/discussions/8)
 - [Stipendi: da Roma a Civitavecchia](https://github.com/dataciviclab/open-noipa/discussions/9)
-- [Assenze: 64 milioni di giorni di malattia al mese](https://github.com/dataciviclab/open-noipa/discussions/10)
+- [Assenze: il dato NoiPA è in verifica (unità non documentata)](https://github.com/dataciviclab/open-noipa/discussions/10)
 - [Invecchiamento: Salerno 49% over 55](https://github.com/dataciviclab/open-noipa/discussions/11)
 - [Contributi previdenziali: il datore paga il 73%](https://github.com/dataciviclab/open-noipa/discussions/12)
 
